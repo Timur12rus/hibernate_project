@@ -15,15 +15,14 @@ public class App {
         SessionFactory sessionFactory = configuration.buildSessionFactory();
         Session session = sessionFactory.getCurrentSession();
 
-
         try {
             session.beginTransaction();
 
-            Person person = session.get(Person.class, 1);
-            System.out.println(person.getName());
-            System.out.println(person.getAge());
+            Person person2 = session.get(Person.class, 2);
+            person2.setName("New Person2");
 
             session.getTransaction().commit();
+
         } finally {
             sessionFactory.close();     // в любом случае мы закроем сессию
         }
