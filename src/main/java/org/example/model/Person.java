@@ -1,9 +1,10 @@
 package org.example.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "Person")
+@Table(name = "person")
 public class Person {
 
     @Id
@@ -16,6 +17,18 @@ public class Person {
 
     @Column(name = "age")
     private int age;
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }
+
+    @OneToMany(mappedBy = "owner")
+    private List<Item> items;
+
 
     public Person() {
     }
