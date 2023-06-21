@@ -70,10 +70,20 @@ public class App {
 //            person.getItems().forEach(i -> i.setOwner(null));
 
             // Поменяем владельца у существующего товара
-            Item item = session.get(Item.class, 2);
-            Person person = session.get(Person.class, 4);
-            item.setOwner(person);
-            person.getItems().add(item);
+//            Person person = session.get(Person.class, 4);
+//            Item item = session.get(Item.class, 2);
+//
+//            item.setOwner(person);
+//            person.getItems().add(item);
+
+            // используем каскадирование
+            Person person = new Person("Test cascadeing", 30);
+
+            person.addItem(new Item("Item 1"));
+            person.addItem(new Item("Item 2"));
+            person.addItem(new Item("Item 3"));
+
+            session.save(person);
 
             session.getTransaction().commit();
         } finally {
