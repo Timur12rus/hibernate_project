@@ -112,15 +112,15 @@ public class App {
 //            Person person = passport.getPerson();
 //            System.out.println(person.getName());
 
-            // Изменим номер паспорта у какого-то человека
+            // Изменим номер паспорта у какого-то человека 
 //            Person person = session.get(Person.class, 4);
 //            Passport passport = person.getPassport();
 //            passport.setPassportNumber(777777);
 //            System.out.println("Person name = " + person.getName() + " with passport number = " + passport.getPassportNumber());
 
             // Удалим человека, и посмотрим как удалится паспорт, т.к. мы настроили каскадирование в базе данных на удаление
-            Person person = session.get(Person.class, 3);
-            session.remove(person);
+//            Person person = session.get(Person.class, 3);
+//            session.remove(person);
 
             session.getTransaction().commit();
         } finally {
