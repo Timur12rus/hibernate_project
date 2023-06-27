@@ -29,22 +29,23 @@ public class Person {
         this.items = items;
     }
 
-    @OneToMany(mappedBy = "owner")
+    @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY)
+//    @OneToMany(mappedBy = "owner", fetch = FetchType.EAGER)
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     private List<Item> items;
 
-    public Passport getPassport() {
-        return passport;
-    }
+//    public Passport getPassport() {
+//        return passport;
+//    }
+//
+//    public void setPassport(Passport passport) {
+//        this.passport = passport;
+//        passport.setPerson(this);
+//    }
 
-    public void setPassport(Passport passport) {
-        this.passport = passport;
-        passport.setPerson(this);
-    }
-
-    @OneToOne(mappedBy = "person")
-    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-    private Passport passport;
+//    @OneToOne(mappedBy = "person")
+//    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+//    private Passport passport;
 
     public Person() {
     }
